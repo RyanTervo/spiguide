@@ -1,75 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPI Guide - Your Ultimate South Padre Island Directory</title>
-    
-    <!--This is where I connect to all the different files-->
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPIGuide | South Padre Island Guide</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">SPI Guide</div>
-            <ul class="nav-links">
-                <li><a href="advertise">Advertise</a></li>
-                <li><a href="spacex.html">Space X Launches</a></li>
-                <li><a href="business">Businesses</a></li>
-                <li><a href="events">Events</a></li>
-                <li><a href="about.html">About</a></li>
+  <header>
+    <nav>
+      <div class="logo">SPIGuide</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="things-to-do.html">Things to Do</a></li>
+        <li><a href="#featured">Featured</a></li>
+        <li><a href="#tips">Local Tips</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button onclick="document.body.classList.toggle('dark-mode')" class="btn btn-primary">Toggle Dark Mode</button>
+    </nav>
+  </header>
 
-                <!--This is where I added the dark mode button-->
-               
-                <button onclick="document.body.classList.toggle('dark-mode')" class="btn-primary">
-                    Toggle Dark Mode
-                  </button>
-                  
-            </ul>
-        </nav>
-    </header>
-    
-    <section class="hero">
-        <h1>Discover South Padre Island</h1>
-        <p>Your go-to directory for everything SPI – restaurants, activities, nightlife, and more!</p>
-        <a href="#explore" class="btn">Start Exploring</a>
-    </section>
-    
-    <section id="explore" class="explore">
-        <h2>Top Categories</h2>
-        <div class="categories">
-            <div class="category-card">
-                <i class="fas fa-utensils"></i>
-                <h3>Restaurants</h3>
-            </div>
-            <div class="category-card">
-                <i class="fas fa-umbrella-beach"></i>
-                <h3>Beaches</h3>
-            </div>
-            <div class="category-card">
-                <i class="fas fa-cocktail"></i>
-                <h3>Nightlife</h3>
-            </div>
-            <div class="category-card">
-                <i class="fas fa-calendar-alt"></i>
-                <h3>Events</h3>
-            </div>
-        </div>
-    </section>
-    
-    <section id="business" class="business-highlight">
-        <h2>Featured Businesses</h2>
-        <p>Support local businesses and explore top-rated services in SPI.</p>
-    </section>
-    
-    <section id="events" class="events">
-        <h2>Upcoming Events</h2>
-        <p>Stay updated with the latest events happening on South Padre Island.</p>
-    </section>
-    
-    <footer>
-        <p>&copy; 2025 SPI Guide. South Padre Island, Texas.  All rights reserved.</p>
-    </footer>
+  <section class="hero">
+    <h1>Welcome to South Padre Island</h1>
+    <p>Your ultimate guide to things to do, places to stay, and where to eat in SPI.</p>
+    <input type="text" placeholder="Search for restaurants, activities, or rentals" class="p-2 mt-2" style="width: 80%; max-width: 400px; border-radius: 5px; border: 1px solid #ccc;" />
+  </section>
+
+  <section class="explore" id="categories">
+    <h2 class="text-center">Explore Popular Categories</h2>
+    <div class="categories">
+      <a href="things-to-do.html" class="category-card">
+        <i class="fas fa-umbrella-beach"></i>
+        <h3>Things to Do</h3>
+      </a>
+      <div class="category-card">
+        <i class="fas fa-hotel"></i>
+        <h3>Places to Stay</h3>
+      </div>
+      <div class="category-card">
+        <i class="fas fa-utensils"></i>
+        <h3>Dining</h3>
+      </div>
+      <div class="category-card">
+        <i class="fas fa-calendar-alt"></i>
+        <h3>Events</h3>
+      </div>
+      <div class="category-card">
+        <i class="fas fa-shopping-bag"></i>
+        <h3>Shopping</h3>
+      </div>
+      <div class="category-card">
+        <i class="fas fa-bus"></i>
+        <h3>Transportation</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="explore mt-3" id="featured">
+    <h2 class="text-center">Featured Businesses & Deals</h2>
+    <div class="categories">
+      <div class="category-card">
+        <h3>WaveRunner Rentals</h3>
+        <p>20% off for early bookings</p>
+        <a href="#" class="btn btn-accent">Book Now</a>
+      </div>
+      <div class="category-card">
+        <h3>Seafood Paradise</h3>
+        <p>Free appetizer with dinner</p>
+        <a href="#" class="btn btn-accent">View Menu</a>
+      </div>
+      <div class="category-card">
+        <h3>Sunset Resort</h3>
+        <p>3 nights for the price of 2</p>
+        <a href="#" class="btn btn-accent">Check Availability</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="explore mt-3" id="tips">
+    <h2 class="text-center">Top SPI Travel Tips</h2>
+    <ul>
+      <li>🌞 Best time to visit: March–May for Spring Break or September for a quiet retreat.</li>
+      <li>🕶️ Bring reef-safe sunscreen and beachwear for sun protection.</li>
+      <li>🗺️ Don't miss the sea turtle sanctuary and sunset cruises!</li>
+    </ul>
+  </section>
+
+  <footer id="contact">
+    <p>&copy; 2025 SPIGuide.com | Your Ultimate South Padre Island Guide</p>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
