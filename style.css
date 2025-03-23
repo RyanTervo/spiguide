@@ -1,3 +1,55 @@
+
+/* ======================= Dark Mode ======================= */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode header,
+body.dark-mode .header {
+  background-color: #1f1f1f;
+  color: #fff;
+  border-bottom-color: #444;
+}
+
+body.dark-mode a {
+  color: var(--accent-color);
+}
+
+body.dark-mode .category-card,
+body.dark-mode .launch-info,
+body.dark-mode .upcoming-launches,
+body.dark-mode .plan-your-trip {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+body.dark-mode .footer {
+  background-color: #222;
+  color: #ccc;
+}
+
+
+
+
+:root {
+  /* === Color Palette === */
+  --primary-color: #007bff;
+  --accent-color: #ff9800;
+  --light-bg: #f5faff;
+  --dark-bg: #343a40;
+  --text-color: #333;
+  --link-color: #00b4d8;
+
+  /* === Fonts === */
+  --font-body: 'Poppins', Arial, sans-serif;
+}
+
+
+
+
+
 /* ======================= Global Styles ======================= */
 
 * {
@@ -172,3 +224,57 @@
     position: static;
   }
   
+
+  /* === Utility Classes === */
+
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 2rem; }
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-accent {
+  background-color: var(--accent-color);
+}
+
+
+
+/* === Responsive Design === */
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 100px 20px 60px;
+  }
+
+  .categories {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .category-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+
