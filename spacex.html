@@ -29,18 +29,106 @@
 
   <!-- Header with Navigation -->
   <header>
-    <nav>
-      <div class="logo">SPIGuide</div>
-      <ul class="nav-links">
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">SPIGuide</a>
+
+      <!-- Hamburger icon for mobile -->
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Nav Links -->
+      <ul class="nav-links" id="navMenu">
         <li><a href="index.html">Home</a></li>
         <li><a href="things-to-do.html">Things to Do</a></li>
         <li><a href="spacex.html">SpaceX</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#footer">Contact</a></li>
       </ul>
-      <button onclick="toggleTheme()" class="btn btn-primary" id="themeToggle">
+
+      <!-- Dark Mode Toggle -->
+      <button onclick="toggleTheme()" class="btn btn-primary theme-toggle" id="themeToggle">
         <i class="fa-solid fa-moon"></i>
       </button>
-    </nav>
-  </header>
+    </div>
+  </nav>
+
+  <style>
+    .navbar {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 4px solid var(--link-color);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .theme-toggle {
+      margin-left: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        display: none;
+        text-align: center;
+        padding: 1rem 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+  </style>
+</header>
+<script>
+  function toggleMobileMenu() {
+    const navMenu = document.getElementById("navMenu");
+    navMenu.classList.toggle("active");
+  }
+</script>
 
   <!-- SpaceX Hero Section -->
   <section class="hero">

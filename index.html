@@ -34,20 +34,32 @@
 
   <!-- Header Navigation and Theme Toggle -->
   <header>
-    <nav>
-      <div class="logo">SPIGuide</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="things-to-do.html">Things to Do</a></li>
-        <li><a href="#featured">Featured</a></li>
-        <li><a href="#tips">Local Tips</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button onclick="toggleTheme()" class="btn btn-primary" id="themeToggle">
-        <i class="fa-solid fa-moon"></i>
-      </button>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">SPIGuide</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="things-to-do.html">Things to Do</a></li>
+          <li><a href="spacex.html">SpaceX</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+        <button onclick="toggleTheme()" class="btn btn-primary theme-toggle" id="themeToggle">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
     </nav>
   </header>
+
+  <script>
+    function toggleMobileMenu() {
+      const navMenu = document.getElementById("navMenu");
+      navMenu.classList.toggle("active");
+    }
+  </script>
 
   <!-- Hero Section with Search Input -->
   <section class="hero">

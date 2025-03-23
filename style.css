@@ -79,7 +79,75 @@ h2 {
 }
 
 
-/* ======================= Header Styles ======================= */
+/* ======================= Header Styles (Modern Responsive) ======================= */
+
+.navbar {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 4px solid var(--link-color);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.theme-toggle {
+  margin-left: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    display: none;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
 
 header,
 .header {
@@ -137,6 +205,11 @@ nav {
   padding: 150px 20px 80px;
   background: url('hero-bg.jpg') no-repeat center center / cover;
   color: white;
+}
+
+body:not(.dark-mode) .hero {
+  color: #333;
+  background-color: #f8f9fa;
 }
 
 /* ======================= Buttons ======================= */
@@ -212,15 +285,16 @@ nav {
 /* ======================= Footer Styles ======================= */
 
 footer,
-footer {
+.footer {
   background-color: var(--dark-bg);
   color: white;
   text-align: center;
   padding: 15px 0;
   margin-top: 50px;
   font-size: 0.9rem;
-  position: static; /* ← this is the fix */
+  position: static;
   width: 100%;
+  bottom: 0;
 }
 
 

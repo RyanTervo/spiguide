@@ -8,42 +8,63 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
+    <!-- Theme Initialization Script -->
   <script>
-    // Retrieve the user's preferred theme from localStorage
-    // If it's set to 'dark', we'll apply dark mode on page load
-     localStorage.getItem('theme') === 'dark';
-
-    // Applies the selected theme and saves it to localStorage
+    const prefersDark = localStorage.getItem('theme') === 'dark';
     function applyTheme(isDark) {
       document.body.classList.toggle('dark-mode', isDark);
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    }
-
-    // When the DOM is fully loaded, apply the theme and set the toggle icon
-    window.addEventListener('DOMContentLoaded', () => {
-      applyTheme(prefersDark);
       const themeToggle = document.getElementById('themeToggle');
       if (themeToggle) {
-        themeToggle.innerHTML = prefersDark
+        themeToggle.innerHTML = isDark
           ? '<i class="fa-solid fa-sun"></i>'
           : '<i class="fa-solid fa-moon"></i>';
       }
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      applyTheme(prefersDark);
     });
   </script>
 
-  <!-- Page Header with Navigation and Theme Toggle -->
   <header>
-    <nav>
-      <div class="logo">SPIGuide</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="things-to-do.html">Things to Do</a></li>
-      </ul>
-      <button onclick="toggleTheme()" class="btn btn-primary" id="themeToggle">
-        <i class="fa-solid fa-moon"></i>
-      </button>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">SPIGuide</a>
+
+        <!-- Hamburger icon for mobile -->
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Nav Links -->
+        <ul class="nav-links" id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="things-to-do.html">Things to Do</a></li>
+          <li><a href="spacex.html">SpaceX</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+
+        <!-- Dark Mode Toggle -->
+        <button onclick="toggleTheme()" class="btn btn-primary theme-toggle" id="themeToggle">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
     </nav>
   </header>
+
+  <script>
+    function toggleMobileMenu() {
+      const navMenu = document.getElementById("navMenu");
+      navMenu.classList.toggle("active");
+    }
+  </script>
+
+  <!-- Existing page content should follow here -->
+</body>
+</html>
+
+  
 
   <!-- Hero section with background image and intro text -->
   <section class="hero">

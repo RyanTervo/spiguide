@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | SPIGuide</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Font Awesome for theme toggle icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
-  <!-- Theme Initialization Script -->
   <script>
     const prefersDark = localStorage.getItem('theme') === 'dark';
     function applyTheme(isDark) {
@@ -27,40 +25,46 @@
     });
   </script>
 
-  <!-- Header with Navigation -->
   <header>
-    <nav>
-      <div class="logo">SPIGuide</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="things-to-do.html">Things to Do</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-      <button onclick="toggleTheme()" class="btn btn-primary" id="themeToggle">
-        <i class="fa-solid fa-moon"></i>
-      </button>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">SPIGuide</a>
+
+        <!-- Hamburger icon for mobile -->
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Nav Links -->
+        <ul class="nav-links" id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="things-to-do.html">Things to Do</a></li>
+          <li><a href="spacex.html">SpaceX</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+
+        <!-- Dark Mode Toggle -->
+        <button onclick="toggleTheme()" class="btn btn-primary theme-toggle" id="themeToggle">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
     </nav>
   </header>
 
-  <!-- About Section -->
+  <script>
+    function toggleMobileMenu() {
+      const navMenu = document.getElementById("navMenu");
+      navMenu.classList.toggle("active");
+    }
+  </script>
+
+  <!-- About Page Content -->
   <section class="hero">
-    <style>
-      .hero {
-        background: url('hero-bg.jpg') no-repeat center center / cover;
-        color: white;
-        text-align: center;
-        padding: 150px 20px 80px;
-      }
-      body:not(.dark-mode) .hero {
-        color: #333;
-        background-color: #f8f9fa;
-      }
-    </style>
     <h1>About SPIGuide</h1>
     <p>Your local connection to everything South Padre Island.</p>
   </section>
 
-  <!-- Mission and Connection Section -->
   <section class="explore mt-3">
     <h2 class="text-center">Our Mission</h2>
     <p style="max-width: 700px; margin: 0 auto;">
@@ -85,17 +89,13 @@
     </p>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-top p-3">
       <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
-        <!-- Branding -->
         <div style="flex: 1; min-width: 200px;">
           <h3>SPIGuide</h3>
           <p>Your go-to source for exploring South Padre Island, from beach days to rocket launches.</p>
         </div>
-  
-        <!-- Navigation Links -->
         <div style="flex: 1; min-width: 150px;">
           <h4>Explore</h4>
           <ul style="list-style: none; padding: 0;">
@@ -105,8 +105,6 @@
             <li><a href="spacex.html">SpaceX</a></li>
           </ul>
         </div>
-  
-        <!-- Contact Info -->
         <div style="flex: 1; min-width: 200px;">
           <h4>Contact</h4>
           <p>Email: <a href="mailto:info@spiguide.com">info@spiguide.com</a></p>
@@ -116,8 +114,6 @@
             <a href="#" style="margin-left: 5px;"><i class="fab fa-instagram"></i></a>
           </p>
         </div>
-  
-        <!-- Legal -->
         <div style="flex: 1; min-width: 150px;">
           <h4>Legal</h4>
           <ul style="list-style: none; padding: 0;">
@@ -127,19 +123,9 @@
         </div>
       </div>
     </div>
-  
     <div class="footer-bottom text-center p-2" style="background-color: var(--dark-bg); color: white;">
       <p>&copy; 2025 SPIGuide.com | South Padre Island’s trusted guide for families, explorers, and unforgettable memories</p>
     </div>
   </footer>
-  
-
-  <!-- Toggle Theme Script -->
-  <script>
-    function toggleTheme() {
-      const isDark = !document.body.classList.contains('dark-mode');
-      applyTheme(isDark);
-    }
-  </script>
 </body>
 </html>
