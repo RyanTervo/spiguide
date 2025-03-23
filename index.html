@@ -45,6 +45,16 @@
   </header>
 
   <section class="hero">
+    <style>
+      .hero {
+        background: url('hero-bg.jpg') no-repeat center center / cover;
+        color: white;
+      }
+      body:not(.dark-mode) .hero {
+        color: #333;
+        background-color: #f8f9fa;
+      }
+    </style>
     <h1>Welcome to South Padre Island</h1>
     <p>Your ultimate guide to things to do, places to stay, and where to eat in SPI.</p>
     <input type="text" placeholder="Search for restaurants, activities, or rentals" class="p-2 mt-2" style="width: 80%; max-width: 400px; border-radius: 5px; border: 1px solid #ccc;" />
