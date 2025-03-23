@@ -5,27 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Things to Do | SPIGuide</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
+  <script>
+    // Retrieve the user's preferred theme from localStorage
+    // If it's set to 'dark', we'll apply dark mode on page load
+     localStorage.getItem('theme') === 'dark';
+
+    // Applies the selected theme and saves it to localStorage
+    function applyTheme(isDark) {
+      document.body.classList.toggle('dark-mode', isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    // When the DOM is fully loaded, apply the theme and set the toggle icon
+    window.addEventListener('DOMContentLoaded', () => {
+      applyTheme(prefersDark);
+      const themeToggle = document.getElementById('themeToggle');
+      if (themeToggle) {
+        themeToggle.innerHTML = prefersDark
+          ? '<i class="fa-solid fa-sun"></i>'
+          : '<i class="fa-solid fa-moon"></i>';
+      }
+    });
+  </script>
+
+  <!-- Page Header with Navigation and Theme Toggle -->
   <header>
     <nav>
       <div class="logo">SPIGuide</div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="#outdoor">Outdoor</a></li>
-        <li><a href="#water">Water</a></li>
-        <li><a href="#family">Family</a></li>
-        <li><a href="#nightlife">Nightlife</a></li>
+        <li><a href="things-to-do.html">Things to Do</a></li>
       </ul>
-      <button onclick="document.body.classList.toggle('dark-mode')" class="btn btn-primary">Toggle Dark Mode</button>
+      <button onclick="toggleTheme()" class="btn btn-primary" id="themeToggle">
+        <i class="fa-solid fa-moon"></i>
+      </button>
     </nav>
   </header>
 
+  <!-- Hero section with background image and intro text -->
   <section class="hero">
+    <style>
+      .hero {
+        background: url('hero-bg.jpg') no-repeat center center / cover;
+        color: white;
+      }
+      body:not(.dark-mode) .hero {
+        color: #333;
+        background-color: #f8f9fa;
+      }
+    </style>
     <h1>Things to Do in South Padre Island</h1>
     <p>Explore adventures, entertainment, and hidden gems along the Gulf Coast.</p>
   </section>
 
+  <!-- Outdoor adventure activities -->
   <section class="explore" id="outdoor">
     <h2 class="text-center">Outdoor Adventures</h2>
     <div class="categories">
@@ -44,6 +80,7 @@
     </div>
   </section>
 
+  <!-- Water-based activities -->
   <section class="explore mt-3" id="water">
     <h2 class="text-center">Water Activities</h2>
     <div class="categories">
@@ -62,6 +99,7 @@
     </div>
   </section>
 
+  <!-- Family-friendly attractions -->
   <section class="explore mt-3" id="family">
     <h2 class="text-center">Family-Friendly Activities</h2>
     <div class="categories">
@@ -80,6 +118,7 @@
     </div>
   </section>
 
+  <!-- Nightlife and evening entertainment -->
   <section class="explore mt-3" id="nightlife">
     <h2 class="text-center">Nightlife & Entertainment</h2>
     <div class="categories">
@@ -98,6 +137,7 @@
     </div>
   </section>
 
+  <!-- Curated list of top activities for first-time visitors -->
   <section class="explore mt-3" id="top-activities">
     <h2 class="text-center">Top 10 Must-Do Activities in SPI</h2>
     <ul>
@@ -108,12 +148,13 @@
       <li>🎣 Go Deep Sea Fishing</li>
       <li>🏖️ Relax on the Beach</li>
       <li>🎶 Catch a Sunset Concert at Clayton’s</li>
-      <li>🛶 Paddleboard in the Bay</li>
-      <li>🎢 Hit the rides at Gravity Park</li>
+      <li>🚖 Paddleboard in the Bay</li>
+      <li>🎂 Hit the rides at Gravity Park</li>
       <li>🍽️ Sunset Dinner at Louie’s Backyard</li>
     </ul>
   </section>
 
+  <!-- Seasonal guides for different travel times -->
   <section class="explore mt-3">
     <h2 class="text-center">Seasonal Guides</h2>
     <div class="categories">
@@ -135,10 +176,23 @@
     </div>
   </section>
 
+  <!-- Site footer -->
   <footer>
     <p>&copy; 2025 SPIGuide.com | Discover the best of South Padre Island</p>
   </footer>
 
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Script to toggle light/dark theme on button click -->
+  <script>
+    function toggleTheme() {
+      const isDark = !document.body.classList.contains('dark-mode');
+      applyTheme(isDark);
+      const themeToggle = document.getElementById('themeToggle');
+      if (themeToggle) {
+        themeToggle.innerHTML = isDark
+          ? '<i class="fa-solid fa-sun"></i>'
+          : '<i class="fa-solid fa-moon"></i>';
+      }
+    }
+  </script>
 </body>
 </html>
