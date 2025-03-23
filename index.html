@@ -5,8 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SPIGuide | South Padre Island Guide</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
+  <script>
+  const prefersDark = localStorage.getItem('theme') === 'dark';
+
+  function applyTheme(isDark) {
+    document.body.classList.toggle('dark-mode', isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    applyTheme(prefersDark);
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      themeToggle.innerHTML = prefersDark
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
+    }
+  });
+</script>
+
   <header>
     <nav>
       <div class="logo">SPIGuide</div>
@@ -17,7 +38,9 @@
         <li><a href="#tips">Local Tips</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button onclick="document.body.classList.toggle('dark-mode')" class="btn btn-primary">Toggle Dark Mode</button>
+      <button onclick="toggleTheme()" class="btn btn-primary" id="themeToggle">
+  <i class="fa-solid fa-moon"></i>
+</button>
     </nav>
   </header>
 
@@ -31,27 +54,27 @@
     <h2 class="text-center">Explore Popular Categories</h2>
     <div class="categories">
       <a href="things-to-do.html" class="category-card">
-        <i class="fas fa-umbrella-beach"></i>
+        <i class="fa-solid fa-umbrella-beach"></i>
         <h3>Things to Do</h3>
       </a>
       <div class="category-card">
-        <i class="fas fa-hotel"></i>
+        <i class="fa-solid fa-hotel"></i>
         <h3>Places to Stay</h3>
       </div>
       <div class="category-card">
-        <i class="fas fa-utensils"></i>
+        <i class="fa-solid fa-utensils"></i>
         <h3>Dining</h3>
       </div>
       <div class="category-card">
-        <i class="fas fa-calendar-alt"></i>
+        <i class="fa-solid fa-calendar-days"></i>
         <h3>Events</h3>
       </div>
       <div class="category-card">
-        <i class="fas fa-shopping-bag"></i>
+        <i class="fa-solid fa-shopping-bag"></i>
         <h3>Shopping</h3>
       </div>
       <div class="category-card">
-        <i class="fas fa-bus"></i>
+        <i class="fa-solid fa-bus"></i>
         <h3>Transportation</h3>
       </div>
     </div>
@@ -83,7 +106,7 @@
     <ul>
       <li>🌞 Best time to visit: March–May for Spring Break or September for a quiet retreat.</li>
       <li>🕶️ Bring reef-safe sunscreen and beachwear for sun protection.</li>
-      <li>🗺️ Don't miss the sea turtle sanctuary and sunset cruises!</li>
+      <li>🗌️ Don't miss the sea turtle sanctuary and sunset cruises!</li>
     </ul>
   </section>
 
@@ -91,6 +114,18 @@
     <p>&copy; 2025 SPIGuide.com | Your Ultimate South Padre Island Guide</p>
   </footer>
 
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+  function toggleTheme() {
+    const isDark = !document.body.classList.contains('dark-mode');
+    applyTheme(isDark);
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      themeToggle.innerHTML = isDark
+      ? '<i class="fa-solid fa-sun"></i>'
+      : '<i class="fa-solid fa-moon"></i>';
+    }
+  }
+</script>
+ 
 </body>
 </html>
