@@ -2,49 +2,155 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SpaceX Launches | SPI Guide</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpaceX Launch Viewing | SPIGuide</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <h1>SpaceX Launches</h1>
-      <p>Your guide to upcoming rocket launches in South Padre Island</p>
-    </div>
+  <!-- Theme Initialization Script -->
+  <script>
+    const prefersDark = localStorage.getItem('theme') === 'dark';
+    function applyTheme(isDark) {
+      document.body.classList.toggle('dark-mode', isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      const themeToggle = document.getElementById('themeToggle');
+      if (themeToggle) {
+        themeToggle.innerHTML = isDark
+          ? '<i class="fa-solid fa-sun"></i>'
+          : '<i class="fa-solid fa-moon"></i>';
+      }
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      applyTheme(prefersDark);
+    });
+  </script>
+
+  <!-- Header with Navigation -->
+  <header>
+    <nav>
+      <div class="logo">SPIGuide</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="things-to-do.html">Things to Do</a></li>
+        <li><a href="spacex.html">SpaceX</a></li>
+      </ul>
+      <button onclick="toggleTheme()" class="btn btn-primary" id="themeToggle">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </nav>
   </header>
 
-  <section class="launch-info container">
-    <h2>Why Visit for a SpaceX Launch?</h2>
-    <p>
-      Witness cutting-edge space technology take off from one of the most beautiful beaches in Texas.
-      SPI is just minutes from Boca Chica, the SpaceX Starbase launch site. Enjoy the beach, relax, and
-      experience the thrill of space exploration.
-    </p>
+  <!-- SpaceX Hero Section -->
+  <section class="hero">
+    <style>
+      .hero {
+        background: url('spacex-hero.jpg') no-repeat center center / cover;
+        color: white;
+        text-align: center;
+        padding: 150px 20px 80px;
+      }
+      body:not(.dark-mode) .hero {
+        color: #333;
+        background-color: #f8f9fa;
+      }
+    </style>
+    <h1>Watch a SpaceX Launch from SPI</h1>
+    <p>Everything you need to know to witness the next big liftoff.</p>
   </section>
 
-  <section class="upcoming-launches container">
-    <h2>Upcoming Launches</h2>
-    <ul>
-      <li><strong>Starship Test Flight 4</strong> – March 28, 2025</li>
-      <li><strong>Starlink Mission</strong> – April 12, 2025</li>
-      <li><strong>Crewed Moon Simulation</strong> – May 2025</li>
-    </ul>
-  </section>
-
-  <section class="plan-your-trip container">
-    <h2>Plan Your Trip</h2>
-    <p>
-      Need help booking a place to stay, finding the best viewing spots, or joining a group tour?
-      <a href="https://southpadretravel.com">South Padre Travel</a> has you covered.
-    </p>
-  </section>
-
-  <footer class="footer">
+  <!-- Launch Info Section -->
+  <section class="explore mt-3">
+    <h2 class="text-center">Launch Viewing Info</h2>
     <div class="container">
-      <p>&copy; 2025 SPI Guide. All rights reserved.</p>
+      <div class="launch-info">
+        <h3>Where to Watch</h3>
+        <p>Best viewing points include Isla Blanca Park, SPI Convention Center, and Beach Access #5.</p>
+        <h3>When to Watch</h3>
+        <p>Follow the SpaceX launch calendar and arrive early for a good spot. Launch times can change!</p>
+        <h3>What to Bring</h3>
+        <ul>
+          <li>Binoculars or a camera with zoom</li>
+          <li>Portable chairs or a beach blanket</li>
+          <li>Snacks, drinks, and sun protection</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Launches Section -->
+  <section class="explore mt-3">
+    <h2 class="text-center">Upcoming SpaceX Launches</h2>
+    <div class="container upcoming-launches">
+      <p>Next Launch: Starship Test Flight – April 15, 2025 (Subject to change)</p>
+      <a href="https://www.spacex.com/launches/" target="_blank" class="btn btn-primary mt-2">View Launch Schedule</a>
+    </div>
+  </section>
+
+  <!-- Plan Your Trip Section -->
+  <section class="explore mt-3">
+    <h2 class="text-center">Plan Your Space-Themed Adventure</h2>
+    <div class="container plan-your-trip">
+      <p>Looking to combine your launch viewing with a beach vacation? Check out local rentals and travel packages customized for rocket fans.</p>
+      <a href="https://southpadretravel.com" target="_blank" class="btn btn-accent">Book Travel</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-top p-3">
+      <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+        <!-- Branding -->
+        <div style="flex: 1; min-width: 200px;">
+          <h3>SPIGuide</h3>
+          <p>Your go-to source for exploring South Padre Island, from beach days to rocket launches.</p>
+        </div>
+
+        <!-- Navigation Links -->
+        <div style="flex: 1; min-width: 150px;">
+          <h4>Explore</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="things-to-do.html">Things to Do</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="spacex.html">SpaceX</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div style="flex: 1; min-width: 200px;">
+          <h4>Contact</h4>
+          <p>Email: <a href="mailto:info@spiguide.com">info@spiguide.com</a></p>
+          <p>Phone: <a href="tel:+1234567890">(123) 456-7890</a></p>
+          <p>Follow us:
+            <a href="#" style="margin-left: 5px;"><i class="fab fa-facebook"></i></a>
+            <a href="#" style="margin-left: 5px;"><i class="fab fa-instagram"></i></a>
+          </p>
+        </div>
+
+        <!-- Legal -->
+        <div style="flex: 1; min-width: 150px;">
+          <h4>Legal</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom text-center p-2" style="background-color: var(--dark-bg); color: white;">
+      <p>&copy; 2025 SPIGuide.com | South Padre Island’s trusted guide for families, explorers, and unforgettable memories</p>
     </div>
   </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    function toggleTheme() {
+      const isDark = !document.body.classList.contains('dark-mode');
+      applyTheme(isDark);
+    }
+  </script>
 </body>
 </html>
