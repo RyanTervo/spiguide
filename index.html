@@ -6,7 +6,11 @@
   <title>SPIGuide | South Padre Island Guide</title>
   <link rel="stylesheet" href="style.css" />
   <!-- Font Awesome for sun/moon icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins&family=Pacifico&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <!-- Theme Initialization Script -->
@@ -37,37 +41,27 @@
     <nav class="navbar">
       <div class="nav-container">
         <a href="index.html" class="logo">SPIGuide</a>
-        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleMobileMenu()">
-          <i class="fas fa-bars"></i>
-        </button>
-        <ul class="nav-links" id="navMenu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="things-to-do.html">Things to Do</a></li>
-          <li><a href="spacex.html">SpaceX</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="#footer">Contact</a></li>
-        </ul>
-        <button onclick="toggleTheme()" class="btn btn-primary theme-toggle" id="themeToggle">
-          <i class="fa-solid fa-moon"></i>
-        </button>
-     
-      
-      <!-- Language Selector -->
-      <select id="lang-select" onchange="changeLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="es">Español</option>
-      </select>
+        
+        <!-- Hamburger icon for mobile -->
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+
+
+      <!-- Nav Links -->
+      <ul class="nav-links" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="things-to-do.html">Things to Do</a></li>
+        <li><a href="spacex.html">SpaceX</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#footer">Contact</a></li>
+      </ul>
     </div>
     </nav>
   </header>
-
-  <script>
-    function toggleMobileMenu() {
-      const navMenu = document.getElementById("navMenu");
-      navMenu.classList.toggle("active");
-    }
-  </script>
-
+  
+  
+   
   <!-- Hero Section with Search Input -->
   <section class="hero">
     <style>
@@ -148,7 +142,7 @@
     </ul>
   </section>
 
-  <!-- Footer with Copyright -->
+  <!---------------------------- Footer with copyright ----------------------------->
   <footer>
     <div class="footer-top p-3">
       <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
@@ -186,10 +180,24 @@
           <ul style="list-style: none; padding: 0;">
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Use</a></li>
+            <li><h4>Accessibility</h4></li>
+            <li>
+
+              <!-- Language Selector -->
+              <select id="lang-select" onchange="changeLanguage(this.value)" class="lang-select">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+              </select>
+            </li>
+            <li>
+               <!-- Dark Mode Toggle -->
+              <button onclick="toggleTheme()" class="btn btn-primary theme-toggle" id="themeToggle">
+                <i class="fa-solid fa-moon"></i>
+              </button>
+            </li>
           </ul>
         </div>
       </div>
-    </div>
   
     <div class="footer-bottom text-center p-2" style="background-color: var(--dark-bg); color: white;">
       <p>&copy; 2025 SPIGuide.com | South Padre Island’s trusted guide for families, explorers, and unforgettable memories</p>
@@ -218,8 +226,23 @@
     window.location.href = newUrl;
   }
 </script>
-</body>
-</html>
 
+<!-- Mobile Menu Toggle Script -->
+<script>
+  function toggleMobileMenu() {
+    const navMenu = document.getElementById("navMenu");
+    navMenu.classList.toggle("active");
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll(".nav-links a");
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        const navMenu = document.getElementById("navMenu");
+        navMenu.classList.remove("active");
+      });
+    });
+  });
+</script>
 </body>
 </html>
